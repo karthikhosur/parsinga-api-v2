@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+    web:
+        build: nginx
+        ports:
+          - 443:443
+          - 80:80
+        depends_on:
+          - api
+
+
+    api:
+        build: resume-parser
+        environment:
+          - PORT=8080
+        ports:
+          - 8080:8080
+    
